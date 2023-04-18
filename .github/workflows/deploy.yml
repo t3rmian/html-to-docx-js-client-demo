@@ -16,6 +16,10 @@ jobs:
         run: npm install
       - name: Build the application
         run: npm run build
+      - name: Create public
+        run: |
+          mkdir public
+          mv ./index.html ./dist ./public
   deploy:
     runs-on: ubuntu-22.04
     needs: build

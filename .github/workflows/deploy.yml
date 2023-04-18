@@ -28,3 +28,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./
           commit_message: "Deploy to GitHub Pages"
+          cname: html-to-docx-js-client-demo.termian.dev

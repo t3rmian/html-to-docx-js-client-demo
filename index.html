@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>html-docx-js/html-to-docx client demo</title>
+    <script src="https://unpkg.com/html-docx-js@0.3.1/dist/html-docx.js" integrity="sha512-bzl4qumT2zPCT1pxCulU1p3d0++KlZYuobAVvTPeILpR25dYmGnMSBZty9o9Jg/Y66BcvNqmSQcsLwr6NtvT9g==" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            const link = document.getElementById("html-docx-js")
+            const blob = htmlDocx.asBlob(document.documentElement.outerHTML)
+            link.href = URL.createObjectURL(blob)
+        }, false);
+        process = {}; process.env = {};
+    </script>
+</head>
+<body>
+<p style="color: red; font-size: 24px; font-weight: bold">Hello HTML</p>
+<table>
+    <tr>
+        <th><b>Product</b></th>
+        <th><b>Price</b></th>
+        <th><b>Availability</b></th>
+    </tr>
+    <tr>
+        <td>Widget A</td>
+        <td>$10.99</td>
+        <td>In Stock</td>
+    </tr>
+    <tr>
+        <td>Widget B</td>
+        <td>$15.99</td>
+        <td>Out of Stock</td>
+    </tr>
+    <tr>
+        <td>Widget C</td>
+        <td>$8.99</td>
+        <td>In Stock</td>
+    </tr>
+</table>
+<br/>
+<a id="html-docx-js" download="html-docx-js.docx">Download (html-docx-js - not supported by Microsoft Word for Mac 2008 and are not supported by LibreOffice and Google Docs - you can test it by uploading to Microsoft OneDrive and opening in Microsoft 365 Word)</a>
+<br/>
+<a id="html-to-docx" download="html-to-docx.docx">Download (html-to-docx - if it's not clickable on Safari due to lookbehind error in the console, wait for https://github.com/privateOmega/html-to-docx/issues/41 or https://bugs.webkit.org/show_bug.cgi?id=174931 or Safari 16.4 https://developer.apple.com/documentation/safari-release-notes/safari-16_4-release-notes#New-Features)</a>
+</body>
+<script src="dist/main.js"></script>
+</html>

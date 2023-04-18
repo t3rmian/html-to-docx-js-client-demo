@@ -4,8 +4,10 @@ on:
     branches:
       - master
 jobs:
-  build:
+  build-deploy:
     runs-on: ubuntu-22.04
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v2
       - name: Install Node.js
@@ -20,12 +22,6 @@ jobs:
         run: |
           mkdir public
           mv ./index.html ./dist ./public
-  deploy:
-    runs-on: ubuntu-22.04
-    needs: build
-    permissions:
-      contents: write
-    steps:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:

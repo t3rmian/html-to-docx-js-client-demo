@@ -19,6 +19,8 @@ jobs:
   deploy:
     runs-on: ubuntu-22.04
     needs: build
+    permissions:
+      contents: write
     steps:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
